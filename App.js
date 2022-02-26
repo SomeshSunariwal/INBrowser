@@ -1,13 +1,21 @@
-import { StyleSheet, Text, View, StatusBar, SafeAreaView } from "react-native";
-import { useState } from "react";
-import * as Progress from "react-native-progress";
-import WebWindow from "./Component/WebWindow";
-import SearchBar from "./Component/SearchBar";
-import SiteBox from "./Component/SiteBox";
+import React from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  StatusBar,
+  SafeAreaView,
+  Platform,
+} from 'react-native';
+import {useState} from 'react';
+import * as Progress from 'react-native-progress';
+import WebWindow from './Component/WebWindow';
+import SearchBar from './Component/SearchBar';
+import SiteBox from './Component/SiteBox';
 
-export default function App() {
-  const [searchText, setSearchText] = useState("");
-  const [url, setUrl] = useState("https://www.google.com");
+function App() {
+  const [searchText, setSearchText] = useState('');
+  const [url, setUrl] = useState('https://www.google.com');
   const [progress, setProgress] = useState(0);
   const [loading, setLoading] = useState(false);
 
@@ -20,7 +28,7 @@ export default function App() {
           setUrl={setUrl}
         />
       </View>
-      <View style={{ width: "100%" }}>
+      <View style={{width: '100%'}}>
         {loading ? (
           <Progress.Bar
             progress={progress}
@@ -35,20 +43,18 @@ export default function App() {
           borderRightWidth: 2,
           borderTopWidth: 2,
           borderBottomWidth: 2,
-          borderColor: "gray",
-          margin: "1%",
+          borderColor: 'gray',
+          margin: '1%',
           borderRadius: 4,
-        }}
-      >
-        <View style={{ padding: "1%" }}>
+        }}>
+        <View style={{padding: '1%'}}>
           <View
             style={{
-              width: "100%",
+              width: '100%',
               borderBottomWidth: 1,
-              borderBottomColor: "gray",
-            }}
-          >
-            <Text style={{ fontSize: 9, marginBottom: 5 }}>Top Sites</Text>
+              borderBottomColor: 'gray',
+            }}>
+            <Text style={{fontSize: 9, marginBottom: 5}}>Top Sites</Text>
           </View>
           <View>
             <SiteBox setUrl={setUrl} />
@@ -69,16 +75,18 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
-    height: "100%",
-    marginTop: StatusBar.currentHeight,
+    width: '100%',
+    height: '100%',
+    marginTop: Platform.OS == 'android' ? 0 : StatusBar.currentHeight,
   },
   ProgressStyle: {
-    width: "100%",
+    width: '100%',
     height: 3,
   },
   WebView: {
-    height: "100%",
-    width: "100%",
+    height: '100%',
+    width: '100%',
   },
 });
+
+export default App;
