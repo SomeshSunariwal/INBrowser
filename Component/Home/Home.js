@@ -53,7 +53,7 @@ export default function Home() {
           </View>
         </View>
       </View>
-      <WebPage setLoading={setLoading} setProgress={setProgress} url={url} />
+      {/* <WebPage setLoading={setLoading} setProgress={setProgress} url={url} /> */}
     </SafeAreaView>
   );
 }
@@ -61,7 +61,7 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: '100%',
+    height: '97.8%',
     marginTop: Platform.OS == 'android' ? 0 : StatusBar.currentHeight,
   },
   ProgressStyle: {

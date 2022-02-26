@@ -122,5 +122,3 @@ export default function SiteBox({setUrl}) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({});
